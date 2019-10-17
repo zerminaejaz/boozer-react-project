@@ -10,7 +10,7 @@ function App() {
   return (
     // Header
     <div className="App">
-      <div className="container" style={{paddingTop: "3%"}}>
+      <div className="container-fluid" style={{paddingTop: "3%"}}>
         <div className="row justify-content-md-center">
             <div className="col-3 span4 col-3-lg">
             </div>
@@ -23,7 +23,7 @@ function App() {
       </div>
 
       {/* Body */}
-      <div className="body container" style={{paddingTop: "3%"}}>
+      <div className="body container-fluid" style={{paddingTop: "3%"}}>
         <div className="row justify-content-md-center">
             <div className="col-3 col-3-lg">
             <CocktailIndexContainer/>
@@ -37,7 +37,7 @@ function App() {
         </div>
       </div>
       </div>
-  );
+  ); 
 }
 
 export default App;
