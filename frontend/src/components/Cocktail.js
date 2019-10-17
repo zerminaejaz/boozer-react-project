@@ -3,9 +3,10 @@ import React from 'react'
 
 export default class Cocktail extends React.Component{
     render(){
+        console.log(this.props.cocktail)
         return( 
             <React.Fragment>
-                <p>Cocktail</p>
+                <h4>Cocktail Rendered</h4>
             </React.Fragment>
 
             )
