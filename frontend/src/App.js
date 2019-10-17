@@ -18,20 +18,21 @@ export default class App extends React.Component {
 
     fetch(API)
     .then(res => res.json())
-    .then(array=>
+    .then(array=> {
         this.setState({
-          cocktails:array
+          cocktails: array
         })
-      )
+    })
   }
 
-  handleClickedCocktail = (cocktail) => {
+  handleClickedCocktail = (event, cocktail) => {
     //get index of the cocktail and show that cocktail in the showcontainer
-    console.log("Showing Cocktail")
-    return "Showing Cocktail"
+    console.log("Clicked")
+    // return "Clicked"
   }
 
   render(){
+    console.log(this.state)
     return(
       <div className="App">
         <div className="container-fluid" style={{paddingTop: "3%"}}>
@@ -53,6 +54,7 @@ export default class App extends React.Component {
               <CocktailIndexContainer cocktails={this.state.cocktails} handleClickedCocktail={this.handleClickedCocktail} />
               </div>
               <div className="col-6 col-6-lg">
+                <h4>Cocktail Info</h4>
                 <InfoContainer/>
               </div>
               <div className="col-3 col-3-lg">

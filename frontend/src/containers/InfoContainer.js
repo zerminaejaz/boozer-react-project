@@ -5,7 +5,7 @@ export default class InfoContainer extends React.Component{
     render(){
         return(
             <React.Fragment>
-                 <Cocktail/>
+                 {/* <Cocktail/> */}
             </React.Fragment>
        
         )
