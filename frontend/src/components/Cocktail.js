@@ -16,18 +16,19 @@ export default class Cocktail extends React.Component{
 
     }
 
+    // formattedDescription(description){
+    //     let desc = description.substring(0,80).concat("...")
+    //     return desc
+    // }
+
 
     render(){
-
-        console.log("props", this.props)
         return( 
-            <React.Fragment>
-                {/* { this.createCocktail(this.props.cocktail)} */}
-             <div className="cocktail" onClick={()=>this.props.handleClickedCocktail(this.props.cocktail)}>
-             <h4>{this.props.cocktail.name}</h4>
-             <p>{this.props.cocktail.description}</p>
+            <div className="cocktail text-center" onClick={()=>this.props.handleClickedCocktail(this.props.cocktail)}>
+                <h4>{this.props.cocktail.name}</h4>
+                <p>{this.props.cocktail.description}</p>
              </div>
-            </React.Fragment>
+         
             )
 
     }

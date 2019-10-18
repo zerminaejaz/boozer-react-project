@@ -2,8 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import CocktailIndexContainer from './containers/CocktailIndexContainer'
-import InfoContainer from './containers/InfoContainer'
+import Cocktail from './components/Cocktail'
 import FormContainer from './containers/FormContainer';
+
 
 const API= "http://localhost:3000/api/v1/cocktails"
 
@@ -11,7 +12,8 @@ export default class App extends React.Component {
 
 
   state={
-    cocktails:[]
+    cocktails:[],
+    cocktail:{}
   }
 
   componentDidMount(){
@@ -25,13 +27,15 @@ export default class App extends React.Component {
     })
   }
 
-  handleClickedCocktail = (event, cocktail) => {
-    //get index of the cocktail and show that cocktail in the showcontainer
-    console.log("Clicked")
-    // return "Clicked"
+  handleClickedCocktail = (cocktail) => {
+   this.setState({
+     cocktail:cocktail
+   })
   }
 
+
   render(){
+
     console.log(this.state)
     return(
       <div className="App">
@@ -40,13 +44,12 @@ export default class App extends React.Component {
               <div className="col-3 span4 col-3-lg">
               </div>
               <div className="col-6 col-6-lg">
-                Boozer
+                <h1>Boozer</h1>
               </div>
               <div className="col-3 col-3-lg">
               </div>
           </div>
         </div>
-  
      
         <div className="body container-fluid" style={{paddingTop: "3%"}}>
           <div className="row justify-content-md-center">
@@ -54,8 +57,7 @@ export default class App extends React.Component {
               <CocktailIndexContainer cocktails={this.state.cocktails} handleClickedCocktail={this.handleClickedCocktail} />
               </div>
               <div className="col-6 col-6-lg">
-                <h4>Cocktail Info</h4>
-                <InfoContainer/>
+                {this.state.cocktail? <Cocktail key={this.state.cocktail.name} cocktail={this.state.cocktail}/>:<p>Click On A Cocktail</p>}
               </div>
               <div className="col-3 col-3-lg">
                 <FormContainer/>
