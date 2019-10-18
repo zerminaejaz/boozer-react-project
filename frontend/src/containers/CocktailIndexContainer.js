@@ -16,7 +16,7 @@ export default class CocktailIndexContainer extends React.Component{
                {
                  this.props.cocktails.map(cocktail=>{
                     
-                    return <Cocktail key={cocktail.name} cocktail={cocktail} extraInfo ={this.props.extraInfo} handleClickedCocktail={this.props.handleClickedCocktail}/>
+                    return <Cocktail key={cocktail.name} cocktail={cocktail} handleClickedCocktail={this.props.handleClickedCocktail}/>
                    })
                }
                </div>

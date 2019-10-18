@@ -28,10 +28,16 @@ export default class App extends React.Component {
   }
 
   handleClickedCocktail = (cocktail) => {
-    console.log("clicked")
-   this.setState({
-     cocktail:cocktail
-   })
+    
+    let id = cocktail.id
+    fetch(`http://localhost:3000/api/v1/cocktails/${id}`)
+    .then(res=>res.json())
+    .then(cocktailObj=>{
+      this.setState({
+        cocktail:cocktailObj
+      })
+    })
+
   }
 
 
