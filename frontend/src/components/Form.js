@@ -6,9 +6,17 @@ export default class Form extends React.Component{
     //ingredient: name
     // proportions: amount, cocktail, ingredient
     state={
+        name:"",
+        desc:"",
+        instruction: "",
+        source: "",
         cocktail:{},
-        ingredient:{},
-        proportions:{}
+        ingredient:"",
+        proportion:""
+    }
+
+    handleChange=(event)=>{
+
     }
     render()
     {
@@ -18,29 +26,29 @@ export default class Form extends React.Component{
                     <form>
                         <div className="form-group">
                             <label htmlFor="name">Name</label>
-                            <input type="email" className="form-control" id="name" placeholder=""/> 
+                            <input type="email" onChange={(e)=>this.handleChange}className="form-control" id="name" value={this.state.name}/> 
                         </div>
                         <div className="form-group">
                             <label htmlFor="description">Description</label>
-                            <input type="text" className="form-control" id="desc" placeholder=""/>
+                            <input type="text" className="form-control" id="desc" value={this.state.desc}/>
                            
                         </div>
                         <div className="form-group">
                             <label htmlFor="instructions">Instructions</label>
-                            <input type="text" className="form-control" id="instructions" placeholder=""/>
+                            <input type="text" className="form-control" id="instructions" value={this.state.instruction}/>
                         
                         </div>
                         <div className="form-group">
                             <label htmlFor="source">Source</label>
-                            <input type="password" className="form-control" id="source" placeholder=""/>
+                            <input type="password" className="form-control" id="source" value={this.state.source}/>
                         </div>
 
                         <div className="form-group">
                             <label htmlFor="ingredient">Ingredient</label>
-                            <input type="text" className="form-control" id="ingredient" placeholder=""/>
+                            <input type="text" className="form-control" id="ingredient" value={this.state.ingredient}/>
                             <div className="form-group">
-                            <label htmlFor="proportions">Proportions</label>
-                            <input type="number" className="form-control" id="proportions" placeholder=""/>
+                            <label htmlFor="proportion">Proportions</label>
+                            <input type="number" className="form-control" id="proportion" value={this.state.proportion}/>
                         </div>
                         </div>
                             <button type="text" className="btn btn-primary">Submit</button>

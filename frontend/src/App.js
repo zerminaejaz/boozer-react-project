@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import CocktailIndexContainer from './containers/CocktailIndexContainer'
-import Cocktail from './components/Cocktail'
+import ShowContainer from './containers/ShowContainer'
 import FormContainer from './containers/FormContainer';
 
 
@@ -28,6 +28,7 @@ export default class App extends React.Component {
   }
 
   handleClickedCocktail = (cocktail) => {
+    console.log("clicked")
    this.setState({
      cocktail:cocktail
    })
@@ -57,7 +58,7 @@ export default class App extends React.Component {
               <CocktailIndexContainer cocktails={this.state.cocktails} handleClickedCocktail={this.handleClickedCocktail} />
               </div>
               <div className="col-6 col-6-lg">
-                {this.state.cocktail? <Cocktail key={this.state.cocktail.name} cocktail={this.state.cocktail}/>:<p>Click On A Cocktail</p>}
+                {this.state.cocktail? <ShowContainer cocktail={this.state.cocktail}/>:<p>Click On A Cocktail</p>}
               </div>
               <div className="col-3 col-3-lg">
                 <FormContainer/>
