@@ -16,8 +16,8 @@ export default class ShowContainer extends React.Component{
         <p>{this.props.cocktail.source}</p>
         <br></br>
        <h5>Proportions</h5>
-        <p>{this.renderProportions()}</p>
-       
+        <ul>{this.renderProportions()}</ul>
+        <button type="text" onClick={()=>this.props.handleDelete(this.props.cocktail)}className="btn btn-danger">Delete Cocktail</button>
        </div>
         )
     }
@@ -25,7 +25,7 @@ export default class ShowContainer extends React.Component{
     renderProportions=()=>{
         return (
         this.props.cocktail.proportions.map(proportion=>{
-            return <ul>{proportion.amount} of {proportion.ingredient_name}</ul>})
+            return <li className="proportion-item">{proportion.amount} of {proportion.ingredient_name}</li>})
         )
     }
 

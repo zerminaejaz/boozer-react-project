@@ -71,15 +71,16 @@ export default class Form extends React.Component{
             proportions: [...this.state.proportions,proportionObj]
         }
 
-      
-        fetch(API, {
-                method: "POST",
-                headers: {
-                    "Content-Type": 'application/json'   
-                },
-                body: JSON.stringify(data)})
+        this.props.handleSubmit(data, cocktailObj)
+        // fetch(API, {
+        //         method: "POST",
+        //         headers: {
+        //             "Content-Type": 'application/json'   
+        //         },
+        //         body: JSON.stringify(data)})
 
-        this.clearState()   
+        this.clearState()
+           
     }
 
     render()

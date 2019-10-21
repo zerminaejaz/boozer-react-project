@@ -37,6 +37,29 @@ export default class App extends React.Component {
         cocktail:cocktailObj
       })
     })
+  }
+
+  handleSubmit=(data)=>{
+    
+    fetch(API, {
+      method: "POST",
+      headers: {
+        "Content-Type": 'application/json'   
+      },
+      body: JSON.stringify(data)})
+
+      fetch(API)
+      .then(res => res.json())
+      .then(array=> {
+          this.setState({
+            cocktails: array
+          })
+      })  
+    
+  }
+  handleDelete=(cocktail)=>{
+    // console.log("HandleDelete:", cocktail)
+
 
   }
 
@@ -64,10 +87,10 @@ export default class App extends React.Component {
               <CocktailIndexContainer cocktails={this.state.cocktails} handleClickedCocktail={this.handleClickedCocktail} />
               </div>
               <div className="col-6 col-6-lg">
-                {this.state.cocktail? <ShowContainer cocktail={this.state.cocktail}/>:<p>Click On A Cocktail</p>}
+                {this.state.cocktail? <ShowContainer handleDelete={this.handleDelete}cocktail={this.state.cocktail}/>:<p>Click On A Cocktail</p>}
               </div>
               <div className="col-3 col-3-lg">
-                <FormContainer/>
+                <FormContainer handleSubmit={this.handleSubmit}/>
               </div>
           </div>
         </div>
