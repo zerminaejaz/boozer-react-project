@@ -17,7 +17,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount(){
-
+  
     fetch(API)
     .then(res => res.json())
     .then(array=> {
@@ -29,7 +29,6 @@ export default class App extends React.Component {
   }
 
   handleClickedCocktail = (cocktail) => {
-    
     let id = cocktail.id
     fetch(`http://localhost:3000/api/v1/cocktails/${id}`)
     .then(res=>res.json())
@@ -76,4 +75,3 @@ export default class App extends React.Component {
     )
   }
 }
-

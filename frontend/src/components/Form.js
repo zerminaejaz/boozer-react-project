@@ -20,6 +20,19 @@ export default class Form extends React.Component{
         proportions:[]
     }
 
+    clearState(){
+        this.setState({
+            name:"",
+            description:"",
+            instructions: "",
+            source: "",
+            cocktail:{},
+            ingredient_name:"",
+            amount:"",
+            proportions:[]
+        })
+    }
+
     handleChange=(event)=>{
 
         this.setState({
@@ -55,15 +68,18 @@ export default class Form extends React.Component{
             description: this.state.description,
             instructions: this.state.instructions,
             source: this.state.source,
-            proportions: this.state.proportions
+            proportions: [...this.state.proportions,proportionObj]
         }
 
+      
         fetch(API, {
                 method: "POST",
                 headers: {
                     "Content-Type": 'application/json'   
                 },
                 body: JSON.stringify(data)})
+
+        this.clearState()   
     }
 
     render()
@@ -93,7 +109,7 @@ export default class Form extends React.Component{
 
                         <div className="form-group">
                             <label htmlFor="ingredient">Ingredient</label>
-                            <input type="text" onChange={this.handleChange} className="form-control" name="ingredient_name" value={this.state.ingredient}/>
+                            <input type="text" onChange={this.handleChange} className="form-control" name="ingredient_name" value={this.state.ingredient_name}/>
                             
                             <div className="form-group">
                             <label htmlFor="amount">Amount</label>
