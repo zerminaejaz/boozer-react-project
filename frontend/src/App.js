@@ -25,6 +25,7 @@ export default class App extends React.Component {
           cocktails: array
         })
     })
+    console.log(this.state.cocktail)
   }
 
   handleClickedCocktail = (cocktail) => {

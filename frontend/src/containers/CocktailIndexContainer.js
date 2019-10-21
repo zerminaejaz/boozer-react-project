@@ -6,8 +6,6 @@ import Cocktail from '../components/Cocktail'
 
 export default class CocktailIndexContainer extends React.Component{
 
-  
-    
     render(){
       
         return(
@@ -15,7 +13,6 @@ export default class CocktailIndexContainer extends React.Component{
                 <div className="force-overflow">
                {
                  this.props.cocktails.map(cocktail=>{
-                    
                     return <Cocktail key={cocktail.name} cocktail={cocktail} handleClickedCocktail={this.props.handleClickedCocktail}/>
                    })
                }

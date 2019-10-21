@@ -11,11 +11,10 @@ formatDescription(desc){
 
     render(){
         return( 
-            <div className="cocktail text-center" onClick={()=>this.props.handleClickedCocktail(this.props.cocktail)}>
-                <h4>{this.props.cocktail.name}</h4>
+            <div style={{paddingBottom: "2%"}}className="cocktail text-center hoverable" onClick={()=>this.props.handleClickedCocktail(this.props.cocktail)}>
+                <h4 style={{textDecoration:"underline"}}>{this.props.cocktail.name}</h4>
                 <p>{this.formatDescription(this.props.cocktail.description)}</p>
              </div>
-         
             )
 
     }
