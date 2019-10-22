@@ -59,8 +59,27 @@ export default class App extends React.Component {
   }
   handleDelete=(cocktail)=>{
     // console.log("HandleDelete:", cocktail)
+    fetch(`${API}/${cocktail.id}`, {
+      method: "DELETE",
+      headers:{
+        "Content-Type": 'application/json'}
+      })
+      .then(res=>
+        {
+          let cocktailsArray = this.state.cocktails
+          let foundIndex = cocktailsArray.findIndex(function(element) {
+            return element.id === cocktail.id;
+          });
+          // console.log("FOUND:", foundIndex)
+          let newArray = this.state.cocktails
+          
+          newArray.splice(foundIndex,1)
 
+          this.setState({
+            cocktails: newArray
+          })
 
+        })
   }
 
 
