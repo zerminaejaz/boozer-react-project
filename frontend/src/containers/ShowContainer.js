@@ -4,9 +4,11 @@ import './index.css';
 
 export default class ShowContainer extends React.Component{
 
+
     
   
     renderCocktail = () => {
+
         return(
         <div className="text-left">
         <h3>{this.props.cocktail.name}</h3>

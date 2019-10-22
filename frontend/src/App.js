@@ -76,10 +76,11 @@ export default class App extends React.Component {
           newArray.splice(foundIndex,1)
 
           this.setState({
-            cocktails: newArray
+            cocktails: newArray,
+            cocktail:{}
           })
-
         })
+
   }
 
 
@@ -106,7 +107,7 @@ export default class App extends React.Component {
               <CocktailIndexContainer cocktails={this.state.cocktails} handleClickedCocktail={this.handleClickedCocktail} />
               </div>
               <div className="col-6 col-6-lg">
-                {this.state.cocktail? <ShowContainer handleDelete={this.handleDelete}cocktail={this.state.cocktail}/>:<p>Click On A Cocktail</p>}
+                {this.state.cocktail? <ShowContainer handleDelete={this.handleDelete} cocktail={this.state.cocktail}/>:<p>Click On A Cocktail</p>}
               </div>
               <div className="col-3 col-3-lg">
                 <FormContainer handleSubmit={this.handleSubmit}/>
