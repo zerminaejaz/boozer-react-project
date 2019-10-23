@@ -1,4 +1,5 @@
 import React from 'react'
+import './form.css'
 
 const API= "http://localhost:3000/api/v1/cocktails"
 
@@ -71,14 +72,7 @@ export default class Form extends React.Component{
             proportions: [...this.state.proportions,proportionObj]
         }
 
-        this.props.handleSubmit(data, cocktailObj)
-        // fetch(API, {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": 'application/json'   
-        //         },
-        //         body: JSON.stringify(data)})
-
+        this.props.handleSubmit(data)
         this.clearState()
            
     }
@@ -95,7 +89,7 @@ export default class Form extends React.Component{
                         </div>
                         <div className="form-group">
                             <label htmlFor="description">Description</label>
-                            <input type="text" onChange={this.handleChange} className="form-control" name="description" value={this.state.description}/>
+                            <textarea rows="3" type="text" onChange={this.handleChange} className="form-control" style={{height:"50px"}} name="description" value={this.state.description}/>
                            
                         </div>
                         <div className="form-group">

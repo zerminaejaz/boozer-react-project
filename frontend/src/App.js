@@ -44,17 +44,30 @@ export default class App extends React.Component {
     fetch(API, {
       method: "POST",
       headers: {
-        "Content-Type": 'application/json'   
+        "Content-Type": 'application/json' ,
+        "Accepts": 'application/json'
       },
       body: JSON.stringify(data)})
+      .then(res=>res.json())
+      .then(cocktailObj=>{
+        console.log(cocktailObj)
+        // debugger
 
-      fetch(API)
-      .then(res => res.json())
-      .then(array=> {
-          this.setState({
-            cocktails: array
-          })
-      })  
+        this.setState({
+          cocktails: [...this.state.cocktails, cocktailObj]
+        })
+      })
+      
+    
+      // fetch(API)
+      // .then(res => res.json())
+      // .then(array=> {
+      //     this.setState({
+      //       cocktails: array
+      //     })
+      // })  
+
+
     
   }
   handleDelete=(cocktail)=>{
