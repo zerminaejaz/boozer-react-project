@@ -39,47 +39,8 @@ export default class App extends React.Component {
     })
   }
 
-  handleSubmit=(data)=>{
-    
-    fetch(API, {
-      method: "POST",
-      headers: {
-        "Content-Type": 'application/json' ,
-        "Accepts": 'application/json'
-      },
-      body: JSON.stringify(data)})
-      .then(res=>res.json())
-      .then(cocktailObj=>{
-        console.log(cocktailObj)
-        // debugger
-
-        this.setState({
-          cocktails: [...this.state.cocktails, cocktailObj]
-        })
-      })
-      
-    
-      // fetch(API)
-      // .then(res => res.json())
-      // .then(array=> {
-      //     this.setState({
-      //       cocktails: array
-      //     })
-      // })  
-
-
-    
-  }
-  handleDelete=(cocktail)=>{
-    // console.log("HandleDelete:", cocktail)
-    fetch(`${API}/${cocktail.id}`, {
-      method: "DELETE",
-      headers:{
-        "Content-Type": 'application/json'}
-      })
-      .then(res=>
-        {
-          let cocktailsArray = this.state.cocktails
+  updateAfterDeleteFetch=(cocktail)=>{
+    let cocktailsArray = this.state.cocktails
           let foundIndex = cocktailsArray.findIndex(function(element) {
             return element.id === cocktail.id;
           });
@@ -92,6 +53,40 @@ export default class App extends React.Component {
             cocktails: newArray,
             cocktail:{}
           })
+  }
+
+  handleSubmit=(data)=>{
+    
+    fetch(API, {
+      method: "POST",
+      headers: {
+        "Content-Type": 'application/json' ,
+        "Accepts": 'application/json'
+      },
+      body: JSON.stringify(data)})
+      .then(res=>res.json())
+      .then(cocktailObj=>{
+        console.log(cocktailObj)
+
+        this.setState({
+          cocktails: [...this.state.cocktails, cocktailObj]
+        })
+      })
+    
+  }
+
+  handleDelete=(cocktail)=>{
+    console.log("HandleDelete:", cocktail)
+    console.log(`${API}/${cocktail.id}`)
+
+    fetch(`${API}/${cocktail.id}`, {
+      method: "DELETE",
+      headers:{
+        "Content-Type": 'application/json'}
+      })
+      .then(res=>
+        {
+         this.updateAfterDeleteFetch(cocktail)
         })
 
   }
