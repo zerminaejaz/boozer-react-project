@@ -1,9 +1,11 @@
 .App {
   text-align: center;
   background-image: url("https://cdn-image.travelandleisure.com/sites/default/files/styles/1600x1000/public/1511276981/the-roof-at-public-hotel-new-york-city-ROOF1117.jpg?itok=4PTTAf3C");
-  height: 100vh;
-
-  
+  height: 100%;
+  /* look here */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .App-logo {
