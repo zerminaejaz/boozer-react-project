@@ -11,7 +11,7 @@ export default class ShowContainer extends React.Component{
 
         return(
         <div className="text-left show" >
-            <h3>{this.props.cocktail.name}</h3>
+            <h1>{this.props.cocktail.name}</h1>
             <br></br>
             <p>{this.props.cocktail.description}</p>
             <p>{this.props.cocktail.instructions}</p>

@@ -4,5 +4,14 @@
     border-radius: 5px;
     padding-top: 10px;
     color: white;   
+    padding: 20px
   }
 
+.show p{
+  font-family:Georgia, serif;
+}
+
+  h1{
+    font-family: Bradley Hand, cursive;
+
+  }
