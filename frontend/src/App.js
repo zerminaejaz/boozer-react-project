@@ -44,7 +44,7 @@ export default class App extends React.Component {
           let foundIndex = cocktailsArray.findIndex(function(element) {
             return element.id === cocktail.id;
           });
-          // console.log("FOUND:", foundIndex)
+  
           let newArray = this.state.cocktails
           
           newArray.splice(foundIndex,1)
@@ -98,20 +98,22 @@ export default class App extends React.Component {
     return(
       <div className="App">
         <div className="container-fluid" style={{paddingTop: "3%"}}>
-          <div className="row justify-content-md-center">
+          
+          <div className="row justify-content-md-center" style={{paddingTop:"3%"}}>
               <div className="col-3 span4 col-3-lg">
               </div>
-              <div className="col-6 col-6-lg">
-                <h1>Boozer</h1>
+              <div className="col-6 col-6-lg header">
+                <h1 className="title">VELVET BROOKLYN</h1>
+                <h6 className="subheader">Bar & Lounge</h6>
               </div>
               <div className="col-3 col-3-lg">
               </div>
           </div>
-        </div>
+        
      
-        <div className="body container-fluid" style={{paddingTop: "3%"}}>
+        <div className="body container-fluid" style={{paddingTop: "3%"}} height="80vh">
           <div className="row justify-content-md-center">
-              <div className="col-3 col-3-lg">
+              <div className="col-3 col-3-lg index">
               <CocktailIndexContainer cocktails={this.state.cocktails} handleClickedCocktail={this.handleClickedCocktail} />
               </div>
               <div className="col-6 col-6-lg">
@@ -123,6 +125,7 @@ export default class App extends React.Component {
           </div>
         </div>
         </div>
+      </div>
     )
   }
 }

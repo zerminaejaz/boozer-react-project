@@ -1,5 +1,5 @@
 import React from 'react'
-import './index.css';
+import './show.css';
 
 
 export default class ShowContainer extends React.Component{
@@ -10,16 +10,16 @@ export default class ShowContainer extends React.Component{
     renderCocktail = () => {
 
         return(
-        <div className="text-left">
-        <h3>{this.props.cocktail.name}</h3>
-        <br></br>
-        <p>{this.props.cocktail.description}</p>
-        <p>{this.props.cocktail.instructions}</p>
-        <p>{this.props.cocktail.source}</p>
-        <br></br>
-       <h5>Proportions</h5>
-        <ul>{this.renderProportions()}</ul>
-        <button type="text" onClick={()=>this.props.handleDelete(this.props.cocktail)}className="btn btn-danger">Delete Cocktail</button>
+        <div className="text-left show" >
+            <h3>{this.props.cocktail.name}</h3>
+            <br></br>
+            <p>{this.props.cocktail.description}</p>
+            <p>{this.props.cocktail.instructions}</p>
+            <p>{this.props.cocktail.source}</p>
+            <br></br>
+            <h5>Proportions</h5>
+            <ul>{this.renderProportions()}</ul>
+            <center><button type="text" onClick={()=>this.props.handleDelete(this.props.cocktail)}className="btn btn-danger">Delete Cocktail</button></center>
        </div>
         )
     }

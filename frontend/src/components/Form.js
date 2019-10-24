@@ -80,8 +80,8 @@ export default class Form extends React.Component{
     render()
     {
         return(
-            <React.Fragment>
-                <h1 style={{paddingBottom:"5%"}}>Create a Cocktail</h1>
+            <div className="form">
+                <h1 style={{paddingBottom:"5%"}}>Create a Drink</h1>
                     <form onSubmit={this.handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="name">Name</label>
@@ -114,7 +114,7 @@ export default class Form extends React.Component{
                             <button type="text" className="btn btn-primary">Submit</button>
 
                 </form>
-            </React.Fragment>
+            </div>
         )
     }
 }
