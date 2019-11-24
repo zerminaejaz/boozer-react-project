@@ -1,10 +1,10 @@
 # Cocktail Catalog
 
-Pull Over is an application that lets you view a menu of cocktails, read more information on the cocktail and create cocktails
+An application that lets you view a menu of cocktails, read more information on the cocktail and create cocktails
 
 ## Front-end
 
-- Implemented React.js  to create reusable UI components and increase app flexibility for future additions
+- Implemented React.js to create reusable UI components and increase app flexibility for future additions
 - Designed the User Interface with Bootstrap CSS Framework and Javascript to create a modern, smooth UI
 - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -41,9 +41,6 @@ User can
 - View details on that drink
 - Delete the drink from catalog
 - Create a drink with ingredients and proportions
-
-
-
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
