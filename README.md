@@ -31,9 +31,17 @@ npm install && npm start
 
 # Screenshots
 
-## Login / Sign Up
+## Demo
 
-![Sign In](./public/pull_over_login.gif)
+![Demo](./public/demo.gif)
+
+User can 
+- View the list of drinks
+- Search for a specific drink
+- View details on that drink
+- Delete the drink from catalog
+- Create a drink with ingredients and proportions
+
 
 
 
