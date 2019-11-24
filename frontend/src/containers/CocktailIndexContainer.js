@@ -17,14 +17,11 @@ export default class CocktailIndexContainer extends React.Component{
         })
     }
 
-
     render(){
-
         let newArray = this.props.cocktails.filter(cocktailObj => {
             return  cocktailObj.name.includes(this.state.search)
         })
 
-    
         return(
             <div className="index" height="100vh" >
                 <div className="search">
@@ -41,8 +38,6 @@ export default class CocktailIndexContainer extends React.Component{
                     </div>
                 </div>
             </div>
-
         )
     }
-
 }

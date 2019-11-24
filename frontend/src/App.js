@@ -1,10 +1,11 @@
-import React from 'react';
+// import React from 'react';
+import React, {useState} from "react"
 import logo from './logo.svg';
 import './App.css';
 import CocktailIndexContainer from './containers/CocktailIndexContainer'
 import ShowContainer from './containers/ShowContainer'
 import FormContainer from './containers/FormContainer';
-
+import ReactMapGL from 'react-map-gl';
 
 const API= "http://localhost:3000/api/v1/cocktails"
 
@@ -13,7 +14,8 @@ export default class App extends React.Component {
 
   state={
     cocktails:[],
-    cocktail:{}
+    cocktail:{},
+    userLocation:{}
   }
 
   componentDidMount(){
@@ -25,7 +27,7 @@ export default class App extends React.Component {
           cocktails: array
         })
     })
-    console.log(this.state.cocktail)
+   
   }
 
   handleClickedCocktail = (cocktail) => {
@@ -91,20 +93,49 @@ export default class App extends React.Component {
 
   }
 
+  handleLocationButton=(e)=>{
+    if(navigator.geolocation){
+      console.log("Location is available")
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.setState({
+          userLocation: {lattitude: position.coords.lattitude, longitude: position.coords.longitude}
+        }) 
+        console.log(`${this.state.userLocation.longitude}, ${this.state.userLocation.longitude}`)
+      });
+    }
+    else
+      console.log("geolocation is not available")
+  }
+
 
   render(){
-
-    console.log(this.state)
+    
+    // const [viewPort, setViewPort] = useState({
+    //   latitude: 45.42,
+    //   longitude: -75.6903,
+    //   width: "100vh",
+    //   height: "100vh",
+    //   zoom: 50
+    // });
+   
     return(
+      <React.Fragment>{
+
+      }
       <div className="App">
         <div className="container-fluid" style={{paddingTop: "3%"}}>
           
           <div className="row justify-content-md-center" style={{paddingTop:"3%"}}>
               <div className="col-3 span4 col-3-lg">
+                {/* insert map here */}
+                {/* <ReactMapGL>
+
+                </ReactMapGL> */}
               </div>
               <div className="col-6 col-6-lg header">
                 <h1 className="title">VELVET BROOKLYN</h1>
                 <h6 className="subheader">Bar & Lounge</h6>
+                <button onClick={this.handleLocationButton}>Get Location</button>
               </div>
               <div className="col-3 col-3-lg">
               </div>
@@ -126,6 +157,7 @@ export default class App extends React.Component {
         </div>
         </div>
       </div>
+      </React.Fragment>
     )
   }
 }
